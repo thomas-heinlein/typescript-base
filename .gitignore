@@ -1,0 +1,25 @@
+# Dependency directories
+node_modules/
+
+# Build outputs
+dist/
+build/
+out/
+
+# IDE - IntelliJ IDEA
+.idea/
+*.iml
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.local
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional: Logs
+*.log

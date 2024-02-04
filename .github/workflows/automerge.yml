@@ -5,19 +5,20 @@ on:
     workflows: ["Continuous Integration"]
     types:
       - completed
-    branches:
-      - main
 
 jobs:
   automerge:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
-    - name: automerge
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Automerge
       uses: pascalgn/automerge-action@v0.14.3
       env:
         GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
-        MERGE_LABELS: "automerge,!wip"
+        MERGE_LABELS: "" # You can specify or leave empty based on your criteria
         MERGE_METHOD: "squash"
         MERGE_COMMIT_MESSAGE: "pull-request-title"
         MERGE_RETRIES: "6"
